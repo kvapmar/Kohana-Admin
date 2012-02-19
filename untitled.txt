@@ -1,0 +1,10 @@
+function kategorie($id, &$result_array) {
+	$dotaz_sql = "";
+	foreach($vysledek as $row) {
+		$result_array[] = $row['id'];
+		kategorie($row['parent_id'], $result_array);
+	}
+}
+
+$result = array();
+kategorie(1, $result);
